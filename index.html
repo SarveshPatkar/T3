@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biz | Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            background-color: #e6e6e6;
+            display: flex; 
+        }
+
+        .menubar {
+            width: 250px;
+            height: 170vh;
+            background-color: #fff;
+            border: 1px solid black;
+        }
+
+        .logo img {
+            margin-left: -20px;
+            margin-top: -100px;
+            width: 125%;
+            height: 250px;
+        }
+
+        nav ul {
+            border-top: 1px solid rgb(19, 22, 34);
+            margin-top: -100px;
+            list-style-type: decimal; 
+            padding-left: 25px;
+        }
+
+        nav ul li {
+            margin: 15px 0;
+        }
+
+        nav li a {
+            text-decoration: none;
+            color: rgb(64, 64, 144);
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        nav ul:hover {
+            background-color: #fff;
+        }
+
+        nav li:hover {
+            background-color:#244369;
+            padding: 10px;
+        }
+
+        nav li a:hover {
+            color: #ffffff;
+        }
+
+        .home {
+            border-top: 25px solid#244369;
+            flex-grow: 1;
+
+        }
+
+        .home ul {
+            margin-top: 20px;
+            display: flex;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .home ul li {
+            flex: 1; 
+            margin-right: 5px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .home ul li:nth-child(1) {
+            margin-left: 5px;
+            padding-right: 700px;
+        }
+
+        .home ul li:nth-child(2) {
+            text-align: center;
+        }
+
+        .home ul li:last-child {
+            text-align: center;
+        }
+
+        .home ul li a:nth-child(2) {
+            font-size: small;
+        }
+
+        .home ul li a:last-child {
+            font-size: small;
+        }
+
+        .home ul li a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            width: 100%;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .card {
+            width: 275px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #card{
+            margin-right: 80px;
+        }
+        #card1{
+            margin-left: 80px;
+        }
+        .card h2 {
+            margin-top: 10px;
+            color: #4d4d4d;
+            font-size: 15px;
+            padding-bottom: 10px;
+        }
+
+        .card p {
+            padding: 10px;
+            font-size: 12px;
+            color: #777;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .card .status {
+           color: red;
+           font-size: 14px;
+        }
+
+        .card .value {
+            font-size: 35px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .chart {
+            height: 250px;
+            margin-top: 65px;
+            margin-left: 550px;
+            position: absolute;
+            grid-column: span 1;
+            background-color: #d9f2ff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .chart h3 {
+            margin-bottom: 10px;
+        }
+        .chart p{
+            font-size:12px;
+        }
+        .chart .per{
+            color: #ff0000;
+        }
+
+        .bar {
+            border-radius: .1rem;
+            width: 32px;
+            height: 130px;
+            background-color: #007bff;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .bar.yellow {
+            background-color: #ffc107;
+        }
+
+        .bar.blue {
+            background-color: #28a745;
+        }
+        .profit-container{
+            padding: 10px;
+            display: flex;
+            gap: 20px;
+        }
+        .profit{
+            margin-top: 20px;
+            padding: 10px;
+            width:100%;
+            background-color: #fff;
+            display: flex;
+        }
+        .profit img{
+            border-right: 1px solid rgb(55, 0, 255);
+            width:200px;
+            height: 200px;
+        }
+        .profit h5{
+            text-align: center;
+        }
+        .profit p{
+            color: #797979;
+            font-size: small;
+            text-align: center;
+        }
+
+        .exp{
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px;
+            width:100%;
+            background-color: #fff;
+
+        }
+        .exp p{
+            text-align: center;
+            font-size:12px;
+        }
+        .exp .per{
+            margin-top: -15px;
+            border-top: 1px solid black;
+        }
+        .exp .bar{
+            height: 200px;
+        }
+
+        .chart-container{
+            display: flex;
+        }
+        #chart{
+            height: 400px;
+            width: 650px;
+            margin: 10px;
+            background-color: #fff;
+        }
+        #chart h5{
+            text-align: center;
+        }
+
+       .income-statement {
+            margin-right: 10px;
+            margin-top: 10px;
+            width: 50%;
+            height: 400px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+
+       table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+
+        }
+
+        th, td {
+            padding: 5px;
+
+        }
+        #cst{
+            border-bottom: 1px solid black;
+        }
+
+        thead th {
+            height:20px ;
+            text-decoration: underline;
+            font-weight: bold;
+            font-weight: 500;
+        }
+
+        tbody td.positive {
+            color: green;
+        }
+
+        tbody td.negative {
+            color: red;
+        }
+
+        tbody td strong {
+            font-weight: bold;
+        }
+
+
+
+    @media (max-width: 600px) {
+        body {
+            padding: 0;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .menubar {
+            width: 100%;
+            height: auto; 
+            position: relative;
+        }
+
+        nav ul li {
+            flex: 1;
+            margin: 5px 0;
+        }
+        .home ul li:nth-child(1) {
+            margin-left: 5px;
+            padding-right: 7px;
+        }
+
+        .dashboard {
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            width: 100%; 
+            margin-right: 0;
+            margin-left: 0;
+        }
+        #card{
+            margin: 0;
+        }
+        #card1{
+            margin-left: 0;
+        }
+        .chart {
+            margin-left: 75px;
+            width:200px;
+            margin-top: 275px;
+        }
+        .profit-container{
+            margin: 0;
+            display: block;
+        }
+        .profit{
+            width:100%;
+        }
+        .profit img{
+            width: 100%;
+        }
+        .exp{
+            margin-top:10px;
+            width:100%;
+        }
+        .exp p{
+
+            text-align: center;
+            font-size:9px;
+        }
+        .exp .bar{
+
+            width: 26px;
+            height: 90px;
+        }
+        .bar {
+            width: 30px;
+            height: 100px;
+            margin:0;
+        }
+        .exp .per{
+            border-top: none;
+            padding-top: 10px;
+        }
+        .chart-container{
+            display: block;
+        }
+        #chart{
+            width: 95%;
+            margin: 10px;
+        }
+       .income-statement {
+        width: 95%;
+        padding: 0;
+        margin: 10px;
+        height: fit-content;
+        }
+
+    }
+
+    @media (max-width: 1024px) {
+        .chart {
+            margin-left: 130px;
+        }
+        
+        .exp .bar{
+            text-align: center;
+            width: 26px;
+            margin: 2px;
+            height: 90px;
+            margin-left: 8px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div class="menubar">
+    <div class="logo">
+        <img width="60" src="assets/logo.png" alt="Company Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Indicators</a></li>
+            <li><a href="#">Enter Data</a></li>
+            <li><a href="#">Monthly Dashboard</a></li>
+            <li><a href="#">YTD Dashboard</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="home">
+    <ul>
+        <li><a href="#">3. Monthly Dashboard</a></li>
+        <li><a href="#">Select Month</a></li>
+        <li><a href="#">May</a></li>
+    </ul>
+
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h2>Revenue</h2>
+            <div class="value">8,591</div>
+            <p>of Target <span class="status">94.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: red;">8%</span></p>
+        </div>
+
+        <div class="card" id="card">
+            <h2>Gross Profit</h2>
+            <div class="value">2,378</div>
+            <p>of Target <span class="status">80.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: red;">22%</span></p>
+        </div>
+
+        <div class="card"id="card1">
+            <h2>Inventory</h2>
+            <div class="value">9,876</div>
+            <p>of Target <span class="status">105.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: red;">11%</span></p>
+        </div>
+
+        <div class="card">
+            <h2>Accounts Receivable</h2>
+            <div class="value">7,732</div>
+            <p>of Target <span class="status">94.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: rgb(0, 149, 255);">11%</span></p>
+        </div>
+
+
+        <div class="chart">
+
+            <h3>Net Profit Margin (%)</h3>
+            <p class="per">10% &emsp; 17% &emsp; 16%</p>
+            <div class="bar blue"></div>
+            <div class="bar"></div>
+            <div class="bar yellow"></div>
+            <p>Actual &emsp; Target &emsp; Last Year</p>
+        </div>
+
+
+        <div class="card">
+            <h2>Operating Profit (EBIT)</h2>
+            <div class="value">1,200</div>
+            <p>of Target <span class="status">62.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: red;">37%</span></p>
+        </div>
+
+        <div class="card" id="card">
+            <h2>Net Profit Before Tax</h2>
+            <div class="value">857</div>
+            <p>of Target <span class="status">54.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: red;">-46%</span></p>
+        </div>
+
+        <div class="card" id="card1">
+            <h2>Net Operating Cashflow (OCF)</h2>
+            <div class="value">279</div>
+            <p>of Target <span class="status">124.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: rgb(69, 119, 190);">92%</span></p>
+        </div>
+
+        <div class="card">
+            <h2>Current Ratio</h2>
+            <div class="value">1.8</div>
+            <p>of Target <span class="status">111.1%</span></p>
+            <p>Change from Last Year: <span class="status" style="color: rgb(72, 137, 216);">23%</span></p>
+        </div>
+    </div>
+
+    <div class="profit-container">
+        <div class="profit">
+            <div>
+                <h5>Gross Profit Margin%</h5>
+                <img src="assets/pro1.jpeg" alt="">
+                <p>Last Year:32.6%</p>
+            </div>
+            <div>
+                <h5>Operating Expense%</h5>
+                <img src="assets/pro2.png" alt="">
+                <p>Last Year:32.6%</p>
+            </div>
+            <div>
+                <h5>Operating Profit Margin%</h5>
+                <img src="assets/pro3.jpeg" alt="">
+                <p>Last Year:32.6%</p>
+            </div>
+        </div>
+        <div class="exp">
+            <p>1000% &emsp; 1007% &emsp; 1006% &emsp; 1007% &emsp; 1006% &emsp; 1007% &emsp; 1006% &emsp; 1007% &emsp; 1006%&emsp; 1007% &emsp; 1006%</p>
+            <div class="bar blue"></div>
+            <div class="bar"></div>
+            <div class="bar yellow"></div>
+            <div class="bar blue"></div>
+            <div class="bar"></div>
+            <div class="bar yellow"></div>
+            <div class="bar blue"></div>
+            <div class="bar"></div>
+            <div class="bar yellow"></div>
+            <div class="bar blue"></div>
+            <div class="bar"></div>
+            <p class="per">jul &emsp; aug &emsp; sep &emsp; oct &emsp; nov &emsp; dec &emsp; jan &emsp; feb &emsp; mar &emsp; apr &emsp; may</p>
+        </div>
+    </div>
+    <div class="chart-container">
+        <div id="chart">
+            <h5>Cash Conversion Cycle(CCC)-Days</h5>
+        </div>
+
+        <div class="income-statement">
+            <h2>Income Statement - MAY, 2020-21</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Particular</th>
+                        <th>Actual YTD</th>
+                        <th>Variance Act vs Tar</th>
+                        <th>Variance Act vs LY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Revenue</td>
+                        <td>8,591</td>
+                        <td class="negative">-5.95% &#x25BC;</td>
+                        <td class="negative">-7.65% &#x25BC;</td>
+                    </tr>
+                    <tr>
+                        <td >Cost of Goods Sold</td>
+                        <td id="cst">6,213</td>
+                        <td  id="cst" class="positive">0.95% &#x25B2;</td>
+                        <td  id="cst" class="positive">-0.85% &#x25BC;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gross Profit</strong></td>
+                        <td><strong>2,378</strong></td>
+                        <td class="negative"><strong>-19.95% &#x25BC;</strong></td>
+                        <td class="negative"><strong>-21.65% &#x25BC;</strong></td>
+                    </tr>
+                    <tr>
+                        <td >Total Operating Expenses</td>
+                        <td id="cst">1,178</td>
+                        <td id="cst" class="negative">-11.2% &#x25BC;</td>
+                        <td id="cst" class="negative">-5.5% &#x25BC;</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Profit (EBIT)</td>
+                        <td>1,200</td>
+                        <td class="negative">-37.25% &#x25BC;</td>
+                        <td class="negative">-37.45% &#x25BC;</td>
+                    </tr>
+                    <tr>
+                        <td>Other Non-Operating Income/Expenses</td>
+                        <td>84</td>
+                        <td class="positive">37.75% &#x25B2;</td>
+                        <td class="positive">47.45% &#x25B2;</td>
+                    </tr>
+                    <tr>
+                        <td>Finance Expense</td>
+                        <td id="cst">427</td>
+                        <td id="cst" class="negative">5.8% &#x25BC;</td>
+                        <td id="cst" class="negative">6.7% &#x25BC;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Net Profit Before Tax</strong></td>
+                        <td><strong>857</strong></td>
+                        <td class="negative"><strong>-45.45% &#x25BC;</strong></td>
+                        <td class="negative"><strong>-45.55% &#x25BC;</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var options = {
+            series: [{
+                name: 'DSO',
+                type: 'column',
+                data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+            }, {
+                name: 'DPO',
+                type: 'line',
+                data: [44, 52, 39, 56, 54, 60, 44, 45, 54, 52, 12, 16]
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+            },
+            stroke: {
+                width: [0, 4]
+            },
+            labels: ['jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb', 'mar', 'apr', 'may', 'jun'],
+            yaxis: [{
+                title: {
+                    text: 'DSO',
+                },
+                labels: {
+                    formatter: function(value) {
+                        if (value === 0 || value === 600) {
+                            return ''; 
+                        }
+                        return value; 
+                    }
+                }
+            }, {
+                opposite: true,
+                title: {
+                    text: 'DPO'
+                }
+            }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    });
+</script>
+
+</body>
+</html>
